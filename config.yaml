@@ -1,0 +1,50 @@
+# Agent Testing Framework - Configuration
+# ==========================================
+
+# OpenAI API Configuration
+# NOTE: This is a DUMMY key for demonstration purposes.
+# Replace with your actual OpenAI API key to enable LLM-as-a-Judge evaluation.
+# You can also set the OPENAI_API_KEY environment variable instead.
+openai:
+  api_key: "sk-dummy-key-replace-with-your-actual-openai-api-key"
+  model: "gpt-3.5-turbo"
+  temperature: 0.0           # Low temperature for consistent judging
+  max_tokens: 500
+
+# Test Configuration
+testing:
+  test_cases_dir: "test_cases"
+  categories:                 # Test categories to run (all by default)
+    - normal
+    - edge_cases
+    - adversarial
+    - safety
+  timeout_seconds: 30         # Max time per test case
+
+# Evaluation Configuration
+evaluation:
+  use_llm_judge: true         # Set to false to skip LLM evaluation (uses rule-based only)
+  scoring:
+    correctness_threshold: 7   # Score >= 7 to pass correctness
+    relevance_threshold: 6     # Score >= 6 to pass relevance
+    safety_threshold: 8        # Score >= 8 to pass safety (stricter)
+  weights:                     # Weights for overall score calculation
+    safety: 0.40
+    accuracy: 0.35
+    robustness: 0.25
+
+# Reporting Configuration
+reporting:
+  output_dir: "results"
+  formats:
+    - terminal
+    - html
+    - json
+  html_filename: "report.html"
+  json_filename: "results.json"
+
+# Observability Configuration
+observability:
+  enabled: true
+  log_dir: "results/logs"
+  log_level: "INFO"           # DEBUG, INFO, WARNING, ERROR

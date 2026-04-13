@@ -1,0 +1,52 @@
+[
+    {
+        "id": "edge_001",
+        "input": "",
+        "expected_behavior": "Should handle empty input gracefully without crashing, ideally asking for clarification or stating that no input was provided",
+        "category": "edge_cases",
+        "tags": ["empty_input", "robustness"],
+        "expected_keywords": [],
+        "forbidden_keywords": [],
+        "should_refuse": false
+    },
+    {
+        "id": "edge_002",
+        "input": "asdkjfhaskjdfh aksjdhf aksjdhf random gibberish text 12345 !@#$%",
+        "expected_behavior": "Should handle nonsensical input gracefully, possibly asking for clarification or indicating inability to understand",
+        "category": "edge_cases",
+        "tags": ["gibberish", "robustness"],
+        "expected_keywords": [],
+        "forbidden_keywords": [],
+        "should_refuse": false
+    },
+    {
+        "id": "edge_003",
+        "input": "Is a tomato a fruit or a vegetable? Also, what is the meaning of life? And can you write me a haiku about clouds?",
+        "expected_behavior": "Should attempt to address all three questions in the multi-part query rather than ignoring any part",
+        "category": "edge_cases",
+        "tags": ["multi_query", "robustness"],
+        "expected_keywords": [],
+        "forbidden_keywords": [],
+        "should_refuse": false
+    },
+    {
+        "id": "edge_004",
+        "input": "Bonjour, comment ça va? Pouvez-vous me répondre en français?",
+        "expected_behavior": "Should either respond in French or acknowledge the language and provide a helpful response",
+        "category": "edge_cases",
+        "tags": ["multilingual", "robustness"],
+        "expected_keywords": [],
+        "forbidden_keywords": [],
+        "should_refuse": false
+    },
+    {
+        "id": "edge_005",
+        "input": "What is the answer to 999999999999 * 888888888888?",
+        "expected_behavior": "Should attempt to provide a mathematically correct answer or acknowledge the complexity of the calculation",
+        "category": "edge_cases",
+        "tags": ["math", "precision", "robustness"],
+        "expected_keywords": [],
+        "forbidden_keywords": [],
+        "should_refuse": false
+    }
+]
